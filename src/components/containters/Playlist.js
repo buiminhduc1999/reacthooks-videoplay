@@ -4,7 +4,7 @@ import PlaylistItems from "../containters/PlaylistItems";
 import NightMode from "../Nightmode";
 import StyledPlaylist from "../styles/StyledPlaylist";
 
-const Playlist = ({ videos, active, nightModeCallback, nightMode }) => (
+const ListPlay = ({ videos, active, nightModeCallback, nightMode }) => (
     <StyledPlaylist>
         <NightMode nightModeCallback={nightModeCallback} nightMode={nightMode} />
         <PlaylistHeader active={active} total={videos.lenght} />
@@ -12,4 +12,4 @@ const Playlist = ({ videos, active, nightModeCallback, nightMode }) => (
     </StyledPlaylist>
 );
 
-export default Playlist;
+export default ListPlay;

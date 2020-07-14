@@ -7,7 +7,7 @@ const StyledPlaylistitems = styled.div`
     max-height: 500px;
     
     ::-webkit-scrollbar{
-        width: 5px;
+        width: 10px;
     }
 
     ::-webkit-scrollbar-track{

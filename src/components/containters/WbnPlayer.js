@@ -25,17 +25,17 @@ const themeLight = {
 };
 
 const WbnPlayer = props => {
-    const videos = JSON.parse(document.querySelector('[name="videos"]').value);
-    const savedState = JSON.parse(localStorage.getItem(`${videos.playlistId}`));
+    const items = JSON.parse(document.querySelector('[name="items"]').value);
+    const savedState = JSON.parse(localStorage.getItem(`${items.idPlaylist}`));
     const [state, setState] = useState({
-        videos: savedState ? savedState.videos : videos.playlist,
-        activeVideo: savedState ? savedState.activeVideo : videos.playlist[0],
+        videos: savedState ? savedState.videos : items.playlist,
+        activeVideo: savedState ? savedState.activeVideo : items.playlist[0],
         nightMode: savedState ? savedState.nightMode : true,
-        playlistId: savedState ? savedState.playlistId : videos.playlistId,
+        idPlaylist: savedState ? savedState.idPlaylist : items.idPlaylist,
         autoplay: false,
     });
     useEffect(() => {
-        localStorage.setItem(`${state.playlistId}`, JSON.stringify({ ...state }));
+        localStorage.setItem(`${state.idPlaylist}`, JSON.stringify({ ...state }));
     }, [state]);
 
     useEffect(() => {
@@ -91,7 +91,7 @@ const WbnPlayer = props => {
         }
     }
     return (
-        <ThemeProvider theme={state.nightMode ? theme : themeLight}>
+        <ThemeProvider theme={state.nightMode ? themeLight : theme}>
             {state.videos !== null ? (
                 <StyledWbnPlayer>
                     <Video
