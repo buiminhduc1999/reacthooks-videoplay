@@ -6,17 +6,16 @@ import StyledHomepageTodos from "../../styles/StyledHomepageTodos";
 const EditTodos = () => {
     let history = useHistory();
     const { id } = useParams();
-    const [user, setUser] = useState({
-        name: "",
-        username: "",
-        email: "",
-        phone: "",
-        website: ""
+    const [item, setVideo] = useState({
+        id: "",
+        title: "",
+        video: "",
+        duration: ""
     });
 
-    const { name, username, email, phone, website } = user;
+    const { title, video, duration } = item;
     const onInputChange = e => {
-        setUser({ ...user, [e.target.name]: e.target.value });
+        setVideo({ ...item, [e.target.name]: e.target.value });
     };
 
     useEffect(() => {
@@ -25,13 +24,13 @@ const EditTodos = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:3003/users/${id}`, user);
+        await axios.put(`http://localhost:3003/videos/${id}`, item);
         history.push("/");
     };
 
     const loadUser = async () => {
-        const result = await axios.get(`http://localhost:3003/users/${id}`);
-        setUser(result.data);
+        const result = await axios.get(`http://localhost:3003/videos/${id}`);
+        setVideo(result.data);
     };
     return (
         <StyledHomepageTodos>
@@ -40,54 +39,34 @@ const EditTodos = () => {
                 <div className="">
                     <input
                         type="text"
-                        className="inputext"
-                        placeholder="Enter Your Name"
-                        name="name"
-                        value={name}
+                        className=""
+                        placeholder="Enter Title"
+                        name="title"
+                        value={title}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
                 <div className="">
                     <input
                         type="text"
-                        className="inputext"
-                        placeholder="Enter Your Username"
-                        name="username"
-                        value={username}
-                        onChange={e => onInputChange(e)}
-                    />
-                </div>
-                <div className="">
-                    <input
-                        type="email"
-                        className="inputext"
-                        placeholder="Enter Your E-mail Address"
-                        name="email"
-                        value={email}
+                        className=""
+                        placeholder="Enter Video"
+                        name="video"
+                        value={video}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
                 <div className="">
                     <input
                         type="text"
-                        className="inputext"
-                        placeholder="Enter Your Phone Number"
-                        name="phone"
-                        value={phone}
+                        className=""
+                        placeholder="Enter Duration"
+                        name="duration"
+                        value={duration}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
-                <div className="">
-                    <input
-                        type="text"
-                        className="inputext"
-                        placeholder="Enter Your Website Name"
-                        name="website"
-                        value={website}
-                        onChange={e => onInputChange(e)}
-                    />
-                </div>
-                <button className="button">Update User</button>
+                <button className="button">Update Video</button>
             </form>
         </StyledHomepageTodos >
     );

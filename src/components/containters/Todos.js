@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 import StyledHomepageTodos from "../styles/StyledHomepageTodos";
 
 const Todos = () => {
-    const [users, setUser] = useState([]);
+    const [videos, setVideo] = useState([]);
 
     useEffect(() => {
-        loadUsers();
+        loadVideos();
     }, []);
 
-    const loadUsers = async () => {
-        const result = await axios.get("http://localhost:3003/users");
-        setUser(result.data.reverse());
+    const loadVideos = async () => {
+        const result = await axios.get("http://localhost:3003/videos");
+        setVideo(result.data.reverse());
     };
 
     const deleteUser = async id => {
-        await axios.delete(`http://localhost:3003/users/${id}`);
-        loadUsers();
+        await axios.delete(`http://localhost:3003/videos/${id}`);
+        loadVideos();
     };
 
     return (
@@ -29,11 +29,13 @@ const Todos = () => {
                     <tr>
                         <th scope="col">#</th>
                         <th>|</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Id</th>
                         <th>|</th>
-                        <th scope="col">User Name</th>
+                        <th scope="col">Title</th>
                         <th>|</th>
-                        <th scope="col">Email</th>
+                        <th scope="col">Video</th>
+                        <th>|</th>
+                        <th scope="col">Duration</th>
                         <th>|</th>
                         <th>Action</th>
                         <th>|</th>
@@ -41,29 +43,31 @@ const Todos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user, index) => (
+                    {videos.map((video, index) => (
                         <tr>
                             <th scope="row">{index + 1}</th>
                             <th>|</th>
-                            <td>{user.name}</td>
+                            <td>{video.id}</td>
                             <th>|</th>
-                            <td>{user.username}</td>
+                            <td>{video.title}</td>
                             <th>|</th>
-                            <td>{user.email}</td>
+                            <td>{video.video}</td>
+                            <th>|</th>
+                            <td>{video.duration}</td>
                             <th>|</th>
                             <td>
-                                <Link className="link" to={`/todos/view/${user.id}`}>
+                                <Link className="link" to={`/todos/view/${video.id}`}>
                                     View
                                         </Link>
                                 <Link
                                     className="link"
-                                    to={`/todos/list/edit/${user.id}`}
+                                    to={`/todos/list/edit/${video.id}`}
                                 >
                                     Edit
                                     </Link>
                                 <Link
                                     className="link"
-                                    onClick={() => deleteUser(user.id)}
+                                    onClick={() => deleteUser(video.id)}
                                 >
                                     Delete
                                     </Link>

@@ -27,6 +27,10 @@ const themeLight = {
 };
 
 const WbnPlayer = props => {
+    // {& quot; num & quot;: 8,& quot; title & quot;:& quot; Fetch API Introduction & quot;,& quot; id & quot;:& quot; Oive66jrwBs & quot;,& quot; duration & quot;:& quot; 30: 15 & quot;,& quot; video & quot;:& quot; https://www.youtube.com/embed/Oive66jrwBs&quot;}
+    // const ahihi = [
+    //     { num: 8, title: 'Fetch API Introduction', id: 'Oive66jrwBs', duration: '30:15', video: 'https://www.youtube.com/embed/Oive66jrwBs&quot;' }
+    // ]
     const items = JSON.parse(document.querySelector('[name="items"]').value);
     const savedState = JSON.parse(localStorage.getItem(`${items.idPlaylist}`));
     const [state, setState] = useState({

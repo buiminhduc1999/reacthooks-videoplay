@@ -4,36 +4,35 @@ import { useHistory } from "react-router-dom";
 import StyledHomepageTodos from "../../styles/StyledHomepageTodos";
 const AddTodos = () => {
     let history = useHistory();
-    const [user, setUser] = useState({
-        name: "",
-        username: "",
-        email: "",
-        phone: "",
-        website: ""
+    const [item, setUser] = useState({
+        id: "",
+        title: "",
+        video: "",
+        duration: ""
     });
 
-    const { name, username, email, phone, website } = user;
+    const { id, title, video, duration } = item;
     const onInputChange = e => {
-        setUser({ ...user, [e.target.name]: e.target.value });
+        setUser({ ...item, [e.target.name]: e.target.value });
     };
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.post("http://localhost:3003/users", user);
+        await axios.post("http://localhost:3003/videos", item);
         history.push("/");
     };
 
     return (
         <StyledHomepageTodos>
-            <h2 className="">Add A User</h2>
+            <h2 className="">Add A Video</h2>
             <form onSubmit={e => onSubmit(e)}>
                 <div className="">
                     <input
                         type="text"
                         className="inputext"
-                        placeholder="Enter Your Name"
-                        name="name"
-                        value={name}
+                        placeholder="Enter Id"
+                        name="id"
+                        value={id}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
@@ -41,19 +40,9 @@ const AddTodos = () => {
                     <input
                         type="text"
                         className="inputext"
-                        placeholder="Enter Your Username"
-                        name="username"
-                        value={username}
-                        onChange={e => onInputChange(e)}
-                    />
-                </div>
-                <div className="">
-                    <input
-                        type="email"
-                        className="inputext"
-                        placeholder="Enter Your E-mail Address"
-                        name="email"
-                        value={email}
+                        placeholder="Enter Title"
+                        name="title"
+                        value={title}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
@@ -61,9 +50,9 @@ const AddTodos = () => {
                     <input
                         type="text"
                         className="inputext"
-                        placeholder="Enter Your Phone Number"
-                        name="phone"
-                        value={phone}
+                        placeholder="Enter Video"
+                        name="video"
+                        value={video}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
@@ -71,13 +60,13 @@ const AddTodos = () => {
                     <input
                         type="text"
                         className="inputext"
-                        placeholder="Enter Your Website Name"
-                        name="website"
-                        value={website}
+                        placeholder="Enter Duration"
+                        name="duration"
+                        value={duration}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
-                <button className="button">Add User</button>
+                <button className="button">Add Video</button>
             </form>
         </ StyledHomepageTodos>
     );
