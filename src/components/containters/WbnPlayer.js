@@ -3,6 +3,8 @@ import { ThemeProvider } from 'styled-components';
 import Video from '../Video';
 import Playlist from '../containters/Playlist';
 import StyledWbnPlayer from '../styles/StyledWbnPlayer';
+import { Link } from "react-router-dom";
+import StyledTodos from '../styles/StyledTodos';
 
 const theme = {
     bgcolor: '#353535',
@@ -91,24 +93,29 @@ const WbnPlayer = props => {
         }
     }
     return (
-        <ThemeProvider theme={state.nightMode ? themeLight : theme}>
-            {state.videos !== null ? (
-                <StyledWbnPlayer>
-                    <Video
-                        active={state.activeVideo}
-                        autoplay={state.autoplay}
-                        endCallback={endCallback}
-                        progressCallback={progressCallback}
-                    />
-                    <Playlist
-                        videos={state.videos}
-                        active={state.activeVideo}
-                        nightModeCallback={nightModeCallback}
-                        nightMode={state.nightMode}
-                    />
-                </StyledWbnPlayer>
-            ) : null}
-        </ThemeProvider>
+        <>
+            <ThemeProvider theme={state.nightMode ? themeLight : theme}>
+                {state.videos !== null ? (
+                    <StyledWbnPlayer>
+                        <Video
+                            active={state.activeVideo}
+                            autoplay={state.autoplay}
+                            endCallback={endCallback}
+                            progressCallback={progressCallback}
+                        />
+                        <Playlist
+                            videos={state.videos}
+                            active={state.activeVideo}
+                            nightModeCallback={nightModeCallback}
+                            nightMode={state.nightMode}
+                        />
+                    </StyledWbnPlayer>
+                ) : null}
+            </ThemeProvider>
+            <StyledTodos>
+                <Link className="" to="/todos/list">Open Todos</Link>
+            </StyledTodos>
+        </>
     )
 }
 
