@@ -3,8 +3,6 @@ import { ThemeProvider } from 'styled-components';
 import Video from '../Video';
 import Playlist from '../containters/Playlist';
 import StyledWbnPlayer from '../styles/StyledWbnPlayer';
-import { Link } from "react-router-dom";
-import StyledTodos from '../styles/StyledTodos';
 
 const theme = {
     bgcolor: '#353535',
@@ -27,10 +25,6 @@ const themeLight = {
 };
 
 const WbnPlayer = props => {
-    // {& quot; num & quot;: 8,& quot; title & quot;:& quot; Fetch API Introduction & quot;,& quot; id & quot;:& quot; Oive66jrwBs & quot;,& quot; duration & quot;:& quot; 30: 15 & quot;,& quot; video & quot;:& quot; https://www.youtube.com/embed/Oive66jrwBs&quot;}
-    // const ahihi = [
-    //     { num: 8, title: 'Fetch API Introduction', id: 'Oive66jrwBs', duration: '30:15', video: 'https://www.youtube.com/embed/Oive66jrwBs&quot;' }
-    // ]
     const items = JSON.parse(document.querySelector('[name="items"]').value);
     const savedState = JSON.parse(localStorage.getItem(`${items.idPlaylist}`));
     const [state, setState] = useState({
@@ -98,7 +92,7 @@ const WbnPlayer = props => {
     }
     return (
         <>
-            <ThemeProvider theme={state.nightMode ? themeLight : theme}>
+            <ThemeProvider theme={state.nightMode ? theme : themeLight}>
                 {state.videos !== null ? (
                     <StyledWbnPlayer>
                         <Video
@@ -116,9 +110,6 @@ const WbnPlayer = props => {
                     </StyledWbnPlayer>
                 ) : null}
             </ThemeProvider>
-            <StyledTodos>
-                <Link className="" to="/todos/list">Open Todos</Link>
-            </StyledTodos>
         </>
     )
 }

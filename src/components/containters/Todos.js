@@ -39,7 +39,6 @@ const Todos = () => {
                         <th>|</th>
                         <th>Action</th>
                         <th>|</th>
-
                     </tr>
                 </thead>
                 <tbody>
