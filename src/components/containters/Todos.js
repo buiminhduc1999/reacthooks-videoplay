@@ -22,60 +22,53 @@ const Todos = () => {
 
     return (
         <StyledHomepageTodos>
-            <h1>List Todos</h1>
-            <th><Link className="link" to={`/todos/list/add`}>Add to List</Link></th>
-            <table className="">
-                <thead className="">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th>|</th>
-                        <th scope="col">Id</th>
-                        <th>|</th>
-                        <th scope="col">Title</th>
-                        <th>|</th>
-                        <th scope="col">Video</th>
-                        <th>|</th>
-                        <th scope="col">Duration</th>
-                        <th>|</th>
-                        <th>Action</th>
-                        <th>|</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {videos.map((video, index) => (
+            <div className="item">
+                <h1>List Todos</h1>
+                <th><Link className="link" to={`/todos/list/add`}>Add to List</Link></th>
+                <table className="customers">
+                    <thead className="">
                         <tr>
-                            <th scope="row">{index + 1}</th>
-                            <th>|</th>
-                            <td>{video.id}</td>
-                            <th>|</th>
-                            <td>{video.title}</td>
-                            <th>|</th>
-                            <td>{video.video}</td>
-                            <th>|</th>
-                            <td>{video.duration}</td>
-                            <th>|</th>
-                            <td>
-                                <Link className="link" to={`/todos/view/${video.id}`}>
-                                    View
-                                        </Link>
-                                <Link
-                                    className="link"
-                                    to={`/todos/list/edit/${video.id}`}
-                                >
-                                    Edit
-                                    </Link>
-                                <Link
-                                    className="link"
-                                    onClick={() => deleteUser(video.id)}
-                                >
-                                    Delete
-                                    </Link>
-                            </td>
-                            <th>|</th>
+                            <th scope="col">#</th>
+
+                            <th scope="col">Id</th>
+
+                            <th scope="col">Title</th>
+
+                            <th scope="col">Video</th>
+
+                            <th scope="col">Duration</th>
+
+                            <th>Action</th>
+
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {videos.map((video, index) => (
+                            <tr>
+                                <th scope="row">{index + 1}</th>
+                                <td>{video.id}</td>
+                                <td>{video.title}</td>
+                                <td>{video.video}</td>
+                                <td>{video.duration}</td>
+                                <td>
+                                    <Link className="link" to={`/todos/view/${video.id}`}>
+                                        View
+                                        </Link>
+                                    <Link
+                                        className="link"
+                                        to={`/todos/list/edit/${video.id}`}
+                                    >
+                                        Edit
+                                    </Link>
+                                    <Link className="link" onClick={() => deleteUser(video.id)}>
+                                        Delete
+                                </Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </StyledHomepageTodos>
     );
 };
