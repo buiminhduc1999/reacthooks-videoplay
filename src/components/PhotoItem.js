@@ -18,12 +18,12 @@ const PhotoItem = ({ id, title, thumbnailUrl }) => {
     return (
         <StyledFlex>
             <div className="item">
-                <div className="container-3-box" style={{ width: '18rem' }}>
+                <div className="container-3-box" style={{ width: '10rem' }}>
                     <table>
                         <tr>
                             <img src={thumbnailUrl} />
                         </tr>
-                        <tr height="40">
+                        <tr height="60">
                             {title}
                         </tr>
                         <tr>

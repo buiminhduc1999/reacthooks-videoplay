@@ -29,15 +29,10 @@ const Todos = () => {
                     <thead className="">
                         <tr>
                             <th scope="col">#</th>
-
                             <th scope="col">Id</th>
-
                             <th scope="col">Title</th>
-
                             <th scope="col">Video</th>
-
                             <th scope="col">Duration</th>
-
                             <th>Action</th>
 
                         </tr>
