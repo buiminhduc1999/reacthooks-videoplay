@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import AddTodos from './screens/listtodos_screens/AddTodos';
-import EditTodos from './screens/listtodos_screens/EditTodos';
-import ViewTodos from './screens/listtodos_screens/ViewTodos';
-import ShowListTodos from './screens/listtodos_screens/ShowListTodos';
-import ShowListImages from './screens/image_screens/ShowListImages';
-import EditImages from './screens/image_screens/EditImages';
-import AddImages from './screens/image_screens/AddImages';
-import WbnPlayer from './screens/video_screens/WbnPlayer';
-import Header from './components/Header';
-import GlobalStyle from './components/styles/GlobalStyle';
+import AddTodos from '../screens/listtodos_screens/AddTodos';
+import EditTodos from '../screens/listtodos_screens/EditTodos';
+import ViewTodos from '../screens/listtodos_screens/ViewTodos';
+import ShowListTodos from '../screens/listtodos_screens/ShowListTodos';
+import ShowListImages from '../screens/image_screens/ShowListImages';
+import EditImages from '../screens/image_screens/EditImages';
+import AddImages from '../screens/image_screens/AddImages';
+import WbnPlayer from '../screens/video_screens/WbnPlayer';
+import GlobalStyle from '../components/styles/GlobalStyle';
+import Header from '../components/test';
 const Routing = () => (
     <>
         <BrowserRouter basename="/react_videoplayer/">
+
             <Header />
             <Switch>
                 <Route
