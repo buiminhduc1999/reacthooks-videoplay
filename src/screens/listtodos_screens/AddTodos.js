@@ -1,45 +1,45 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
-import StyledHomepageTodos from "../../styles/StyledHomepageTodos";
-
-const EditTodos = () => {
+import React, { useState } from "react";
+import axios from 'axios'
+import { useHistory } from "react-router-dom";
+import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
+const AddTodos = () => {
     let history = useHistory();
-    const { id } = useParams();
-    const [item, setVideo] = useState({
+    const [item, setUser] = useState({
         id: "",
         title: "",
         video: "",
         duration: ""
     });
 
-    const { title, video, duration } = item;
+    const { id, title, video, duration } = item;
     const onInputChange = e => {
-        setVideo({ ...item, [e.target.name]: e.target.value });
+        setUser({ ...item, [e.target.name]: e.target.value });
     };
-
-    useEffect(() => {
-        loadUser();
-    }, []);
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:3003/videos/${id}`, item);
+        await axios.post("http://localhost:3003/videos", item);
         history.push("/");
     };
 
-    const loadUser = async () => {
-        const result = await axios.get(`http://localhost:3003/videos/${id}`);
-        setVideo(result.data);
-    };
     return (
         <StyledHomepageTodos>
-            <h2 className="">Edit A User</h2>
+            <h2 className="">Add A Video</h2>
             <form onSubmit={e => onSubmit(e)}>
                 <div className="">
                     <input
                         type="text"
-                        className=""
+                        className="inputext"
+                        placeholder="Enter Id"
+                        name="id"
+                        value={id}
+                        onChange={e => onInputChange(e)}
+                    />
+                </div>
+                <div className="">
+                    <input
+                        type="text"
+                        className="inputext"
                         placeholder="Enter Title"
                         name="title"
                         value={title}
@@ -49,7 +49,7 @@ const EditTodos = () => {
                 <div className="">
                     <input
                         type="text"
-                        className=""
+                        className="inputext"
                         placeholder="Enter Video"
                         name="video"
                         value={video}
@@ -59,17 +59,17 @@ const EditTodos = () => {
                 <div className="">
                     <input
                         type="text"
-                        className=""
+                        className="inputext"
                         placeholder="Enter Duration"
                         name="duration"
                         value={duration}
                         onChange={e => onInputChange(e)}
                     />
                 </div>
-                <button className="button">Update Video</button>
+                <button className="button">Add Video</button>
             </form>
-        </StyledHomepageTodos >
+        </ StyledHomepageTodos>
     );
 };
 
-export default EditTodos;
+export default AddTodos;

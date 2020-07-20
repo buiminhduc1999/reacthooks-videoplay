@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import Video from '../Video';
-import Playlist from '../containters/Playlist';
-import StyledWbnPlayer from '../styles/StyledWbnPlayer';
+import Video from '../../components/Video';
+import Playlist from '../../components/containters/Playlist';
+import StyledWbnPlayer from '../../components/styles/StyledWbnPlayer';
 
 const theme = {
     bgcolor: '#353535',

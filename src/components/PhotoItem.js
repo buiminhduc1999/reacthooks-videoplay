@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import services from '../services';
+import services from '../services/CallApi';
 import StyledFlex from './styles/StyledFlex';
 
 const PhotoItem = ({ id, title, thumbnailUrl }) => {

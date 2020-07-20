@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import PhotoItem from '../../PhotoItem';
-import StyledFlexItem from '../../styles/StyledFlexItem';
-import services from '../../../services'
+// import services from '../../../services/Api';
+import PhotoItem from '../../components/PhotoItem';
+import StyledFlexItem from '../../components/styles/StyledFlexItem';
+import services from '../../services/CallApi';
 
-const HomeScreen = () => {
+const ShowListImages = () => {
     const [photos, setPhotos] = useState(null)
-
     const fetchPhotos = async () => {
         try {
             const resp = await services.getAllPhotos();
@@ -42,4 +42,4 @@ const HomeScreen = () => {
     );
 };
 
-export default HomeScreen;
+export default ShowListImages;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import services from '../../../services'
+import services from '../../services/CallApi';
 import { Link } from 'react-router-dom';
-import StyledFlex from '../../styles/StyledFlex';
-import StyledHomepageTodos from '../../styles/StyledHomepageTodos';
-const AddScreen = () => {
+import StyledFlex from '../../components/styles/StyledFlex';
+import StyledHomepageTodos from '../../components/styles/StyledHomepageTodos';
+const AddImages = () => {
     const history = useHistory();
     const [photoTitle, setPhotoTitle] = useState("");
     const [photoURL, setPhotoURL] = useState("");
@@ -57,4 +57,4 @@ const AddScreen = () => {
     );
 };
 
-export default AddScreen;
+export default AddImages;

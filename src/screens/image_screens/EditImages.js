@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import services from '../../../services'
-import StyledHomepageTodos from '../../styles/StyledHomepageTodos';
+import services from '../../services/CallApi';
+import StyledHomepageTodos from '../../components/styles/StyledHomepageTodos';
 
-const EditScreen = ({ match: { params } }) => {
+const EditImages = ({ match: { params } }) => {
     const history = useHistory();
 
     const photoId = params.id;
@@ -84,4 +84,4 @@ const EditScreen = ({ match: { params } }) => {
     );
 };
 
-export default EditScreen;
+export default EditImages;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import StyledHomepageTodos from "../styles/StyledHomepageTodos";
+import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
 
 const Todos = () => {
     const [videos, setVideo] = useState([]);
