@@ -1,46 +1,76 @@
 {
-  "videos": [
+  "users": [
     {
-      "id": "yATidRH0p4k",
-      "title": "Oggy and the Cockroaches",
-      "video": "https://www.youtube.com/embed/yATidRH0p4k",
-      "duration": "21:20"
+      "id": "1",
+      "username": "Fis123456",
+      "password": "123456789",
+      "email": "abc@gmail.com",
+      "phone": "123456789",
+      "address": "Ha Noi"
     },
     {
-      "id": "ejJlnMPCmNo",
-      "title": "Folder structure, midware and provider",
-      "video": "https://www.youtube.com/embed/ejJlnMPCmNo",
-      "duration": "13:27"
+      "id": "2",
+      "username": "ABC123456",
+      "password": "123456789",
+      "email": "21:20",
+      "phone": "123456789",
+      "address": "Ha Noi"
     },
     {
-      "id": "ayAxtbLwEJ8",
-      "title": "Den-Ngay Khac La",
-      "video": "https://www.youtube.com/embed/ayAxtbLwEJ8",
-      "duration": "3:32"
+      "id": "3",
+      "username": "CDE123456",
+      "password": "123456789",
+      "email": "21:20",
+      "phone": "123456789",
+      "address": "Ha Noi"
     },
     {
-      "id": "Jh6Abc_bJ50",
-      "title": "Reducers for the Home Page",
-      "video": "https://www.youtube.com/embed/Jh6Abc_bJ50",
-      "duration": "08:34"
+      "id": "4",
+      "username": "ZXC123456",
+      "password": "123456789",
+      "email": "21:20",
+      "phone": "123456789",
+      "address": "Ha Noi"
     },
     {
-      "id": "ztHLpdVv9Vc",
-      "title": "Connecting the Home Page",
-      "video": "https://www.youtube.com/embed/ztHLpdVv9Vc",
-      "duration": "13:42"
+      "id": "4PRiw_n",
+      "username": "abcdefgh",
+      "password": "123456",
+      "email": "ducminhh1999@gmail.com",
+      "phone": "0987120758",
+      "address": "Viet Nam"
     },
     {
-      "id": "iV5GDHY_cJk",
-      "title": "Quick Recap",
-      "video": "https://www.youtube.com/embed/iV5GDHY_cJk",
-      "duration": "05:50"
+      "id": "FYgebo2",
+      "username": "buiduc1999@gmail.com",
+      "password": "asdasdasd",
+      "email": "ducminhh1999@gmail.com",
+      "phone": "0987120758",
+      "address": "Viet Nam"
     },
     {
-      "id": "XMmSM0TqQ2k",
-      "title": "Completing the App",
-      "video": "https://www.youtube.com/embed/XMmSM0TqQ2k",
-      "duration": "16:33"
+      "id": "gnJUdbI",
+      "username": "george123",
+      "password": "abcdefrr",
+      "email": "ducminhh1999@gmail.com",
+      "phone": "0987120758",
+      "address": "Viet Nam"
+    },
+    {
+      "username": "ducminhh1999@gmail.com",
+      "password": "aaa",
+      "email": "ducminhh1999@gmail.com",
+      "phone": "0987120758",
+      "address": "Viet Nam",
+      "id": "i3kTCyL"
+    },
+    {
+      "username": "abcdefgh123456",
+      "password": "123123123",
+      "email": "123456",
+      "phone": "123123",
+      "address": "123123123",
+      "id": "JtmhjzQ"
     }
   ]
 }

@@ -2,33 +2,40 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
+
+export let loggedIn = true;
+
 const ViewTodos = () => {
-    const [video, setVideo] = useState({
-        name: "",
+    const [user, setUser] = useState({
         username: "",
+        password: "",
         email: "",
         phone: "",
-        webiste: ""
+        address: ""
     });
     const { id } = useParams();
+
     useEffect(() => {
         loadVideo();
     }, []);
+
     const loadVideo = async () => {
-        const res = await axios.get(`http://localhost:3003/videos/${id}`);
-        setVideo(res.data);
+        const res = await axios.get(`http://localhost:3003/users/${id}`);
+        setUser(res.data);
     };
     return (
         <StyledHomepageTodos>
-            <Link className="link" to="/todos/list">
-                Back to Home
+            <Link className="link" to="/service/logout">
+                Logout
             </Link>
-            <h1 className="">Video Id: {id}</h1>
+            <h1 className="">User Id: {id}</h1>
             <hr />
             <ul className="">
-                <li className="">Title: {video.title}</li>
-                <li className="">Video: {video.video}</li>
-                <li className="">Duration: {video.duration}</li>
+                <li className="">User name: {user.username}</li>
+                <li className="">Password: {user.password}</li>
+                <li className="">Email: {user.email}</li>
+                <li className="">Phone: {user.phone}</li>
+                <li className="">Address: {user.address}</li>
             </ul>
         </ StyledHomepageTodos>
     );

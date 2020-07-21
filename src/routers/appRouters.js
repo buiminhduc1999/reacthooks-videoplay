@@ -9,11 +9,14 @@ import EditImages from '../screens/image_screens/EditImages';
 import AddImages from '../screens/image_screens/AddImages';
 import WbnPlayer from '../screens/video_screens/WbnPlayer';
 import GlobalStyle from '../components/styles/GlobalStyle';
-import Header from '../components/test';
+import Header from '../components/Header';
+import LoginScreen from '../screens/LoginScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+import ForgotPassScreen from '../screens/ForgotPassScreen';
+
 const Routing = () => (
     <>
         <BrowserRouter basename="/react_videoplayer/">
-
             <Header />
             <Switch>
                 <Route
@@ -58,6 +61,26 @@ const Routing = () => (
                     exact
                     path="/image/add"
                     component={AddImages}
+                />
+                <Route
+                    exact
+                    path="/service/login"
+                    component={LoginScreen}
+                />
+                <Route
+                    exact
+                    path="/service/register"
+                    component={RegisterScreen}
+                />
+                <Route
+                    exact
+                    path="/service/forgotpassword"
+                    component={ForgotPassScreen}
+                />
+                <Route
+                    exact
+                    path="/service/logout"
+                    component={WbnPlayer}
                 />
             </Switch>
             <GlobalStyle />

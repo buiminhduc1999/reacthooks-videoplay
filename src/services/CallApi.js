@@ -12,4 +12,6 @@ export default {
         axios.put(`${BASE_URL}/photos/${photo.id}`, photo),
     deletePhoto: (photoId) =>
         axios.delete(`${BASE_URL}/photos/${photoId}`),
+    addUser: (user) =>
+        axios.post("http://localhost:3003/users", user),
 }

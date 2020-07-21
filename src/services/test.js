@@ -1,5 +1,5 @@
 import * as React from 'react';
-import StyledHeader from './styles/StyledHeader';
+import StyledHeader from '../components/styles/StyledHeader';
 import { Link } from "react-router-dom";
 
 const Test = () => {
