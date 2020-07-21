@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
 
-export let loggedIn = true;
+export let loggedIn = false;
 
 const ViewTodos = () => {
     const [user, setUser] = useState({
@@ -25,7 +25,7 @@ const ViewTodos = () => {
     };
     return (
         <StyledHomepageTodos>
-            <Link className="link" to="/service/logout">
+            <Link className="link" to="/yATidRH0p4k">
                 Logout
             </Link>
             <h1 className="">User Id: {id}</h1>

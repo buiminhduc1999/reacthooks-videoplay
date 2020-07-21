@@ -21,12 +21,9 @@ const Routing = () => (
             <Switch>
                 <Route
                     exact
-                    path="/"
-                    component={WbnPlayer} />
-                <Route
-                    exact
                     path="/:activeVideo"
-                    component={WbnPlayer} />
+                    component={WbnPlayer}
+                />
                 <Route
                     exact
                     path="/todos/list"
@@ -34,12 +31,12 @@ const Routing = () => (
                 />
                 <Route
                     exact
-                    path="/todos/list/add"
+                    path="/todos/add"
                     component={AddTodos}
                 />
                 <Route
                     exact
-                    path="/todos/list/edit/:id"
+                    path="/todos/edit/:id"
                     component={EditTodos}
                 />
                 <Route
@@ -49,7 +46,7 @@ const Routing = () => (
                 />
                 <Route
                     exact
-                    path="/image/view"
+                    path="/image/list"
                     component={ShowListImages}
                 />
                 <Route
@@ -64,24 +61,24 @@ const Routing = () => (
                 />
                 <Route
                     exact
-                    path="/service/login"
+                    path="/auths/login"
                     component={LoginScreen}
                 />
                 <Route
                     exact
-                    path="/service/register"
+                    path="/auths/register"
                     component={RegisterScreen}
                 />
                 <Route
                     exact
-                    path="/service/forgotpassword"
+                    path="/auths/forgotpassword"
                     component={ForgotPassScreen}
                 />
-                <Route
+                {/* <Route
                     exact
-                    path="/service/logout"
+                    path="/auths/logout"
                     component={WbnPlayer}
-                />
+                /> */}
             </Switch>
             <GlobalStyle />
         </BrowserRouter>

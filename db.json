@@ -71,6 +71,22 @@
       "phone": "123123",
       "address": "123123123",
       "id": "JtmhjzQ"
+    },
+    {
+      "username": "abcdefgh",
+      "password": "123456789",
+      "email": "ducminhh1999@gmail.com",
+      "phone": "0987120758",
+      "address": "Trường mầm non Phương Canh",
+      "id": "IXaFyI6"
+    },
+    {
+      "username": "buiminhduc",
+      "password": "123456789",
+      "email": "ducminhh1999@gmail.com",
+      "phone": "0123456789",
+      "address": "Thai Binh",
+      "id": "1B6Sza3"
     }
   ]
 }

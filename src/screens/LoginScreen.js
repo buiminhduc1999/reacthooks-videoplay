@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import StyledLoginRegister from "../components/styles/StyledLoginRegister";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
-import axios from "axios";
-
-export let loggedIn = true;
+import services from "../services/CallApi";
+import { passRegex, emailRegex } from "../utils/Regex"
 
 const LoginScreen = () => {
     let loggedIn = true;
@@ -29,7 +28,7 @@ const LoginScreen = () => {
     }, []);
 
     const loadUsers = async () => {
-        const result = await axios.get("http://localhost:3003/users");
+        const result = await services.getUserById();
         setUsers(result.data.reverse());
     };
     //
@@ -39,15 +38,29 @@ const LoginScreen = () => {
 
     const submitForm = e => {
         e.preventDefault()
-        users.forEach(user => {
-            if (username === user.username && password === user.password) {
-                localStorage.setItem("token", "123456789")
-                setUser({
-                    id: user.id,
-                    loggedIn: true
-                })
+        try {
+            if (password === "" || username === "") {
+                alert('You need to fill in all the information!!!')
+                return true;
             }
-        });
+            // if (!passRegex.test(password)) {
+            //     alert('Error password!!!')
+            //     return true;
+            // }
+            users.forEach(user => {
+                if (username === user.username && password === user.password) {
+                    localStorage.setItem("token", "123456789")
+                    setUser({
+                        id: user.id,
+                        loggedIn: true
+                    })
+                }
+            });
+        } catch (error) {
+            console.log(error)
+            alert("Register failed");
+        }
+
     };
 
     if (loggedIn) {
@@ -92,7 +105,7 @@ const LoginScreen = () => {
                     </div>
                 </form>
                 <div className="forgot">
-                    <Link className="" to="/service/forgotpassword">Forgot password</Link>
+                    <Link className="" to="/auths/forgotpassword">Forgot password</Link>
                 </div>
             </div>
         </StyledLoginRegister >

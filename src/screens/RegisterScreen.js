@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import StyledLoginRegister from "../components/styles/StyledLoginRegister";
 import { useHistory } from 'react-router-dom';
 import services from "../services/CallApi";
-import axios from 'axios';
-
+import { passRegex, emailRegex } from "../utils/Regex"
 
 const RegisterScreen = () => {
     let history = useHistory();
