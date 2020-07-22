@@ -74,11 +74,6 @@ const Routing = () => (
                     path="/auths/forgotpassword"
                     component={ForgotPassScreen}
                 />
-                {/* <Route
-                    exact
-                    path="/auths/logout"
-                    component={WbnPlayer}
-                /> */}
             </Switch>
             <GlobalStyle />
         </BrowserRouter>
