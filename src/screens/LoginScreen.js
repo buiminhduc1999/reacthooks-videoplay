@@ -53,7 +53,7 @@ const LoginScreen = () => {
                 }
             });
             if (loggedIn === false) {
-                alert("Wrong username and password");
+                alert("Wrong username or password");
             }
         } catch (error) {
             console.log(error)
