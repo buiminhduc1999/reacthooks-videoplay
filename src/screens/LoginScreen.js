@@ -43,9 +43,6 @@ const LoginScreen = () => {
                 alert('You need to fill in all the information!!!')
                 return true;
             }
-            if (loggedIn === false) {
-                alert("Sai username hoac password");
-            }
             users.forEach(user => {
                 if (username === user.username && password === user.password) {
                     localStorage.setItem("token", "123456789")
@@ -56,7 +53,7 @@ const LoginScreen = () => {
                 }
             });
             if (loggedIn === false) {
-                alert("Sai username hoac password");
+                alert("Wrong username and password");
             }
         } catch (error) {
             console.log(error)
