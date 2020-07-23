@@ -2,7 +2,7 @@ import * as React from 'react';
 import StyledHeader from '../components/styles/StyledHeader';
 import { Link } from "react-router-dom";
 
-const Test = () => {
+const Test1 = () => {
     return (
         <StyledHeader>
             <div className="header">
@@ -16,4 +16,4 @@ const Test = () => {
         </StyledHeader>
     );
 };
-export default Test;
+export default Test1;

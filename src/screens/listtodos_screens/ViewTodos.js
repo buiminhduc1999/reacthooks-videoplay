@@ -25,9 +25,6 @@ const ViewTodos = () => {
     };
     return (
         <StyledHomepageTodos>
-            <Link className="link" to="/yATidRH0p4k">
-                Logout
-            </Link>
             <h1 className="">User Id: {id}</h1>
             <hr />
             <ul className="">

@@ -5,7 +5,7 @@ import Playlist from '../../components/containters/Playlist';
 import StyledWbnPlayer from '../../components/styles/StyledWbnPlayer';
 import { Redirect } from 'react-router-dom'
 import CheckId from '../../services/CheckId';
-import { listIdVideo } from '../../utils/ListId';
+
 const theme = {
     bgcolor: '#353535',
     bgcolorItem: '#414141',

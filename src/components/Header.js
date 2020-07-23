@@ -3,26 +3,49 @@ import StyledHeader, { customStyles } from './styles/StyledHeader';
 import { Link } from "react-router-dom";
 import Modal from 'react-modal';
 import LoginScreen from '../screens/LoginScreen';
+import { Redirect } from 'react-router-dom'
+
 Modal.setAppElement('#root')
-const Header = () => {
-    const [modalIsOpen, setModalIsOpen] = useState(false)
+const Header = props => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [checkValue, setcheckValue] = useState(true);
+    const onKick = e => {
+        localStorage.removeItem("token")
+        setcheckValue(true)
+        return <Redirect to={`/yATidRH0p4k`} />
+    };
+    const loginClick = e => {
+        setcheckValue(false);
+        setModalIsOpen(true)
+    };
+    const ahihi = e => {
+        setModalIsOpen(true)
+    }
+    let register;
+    if (checkValue === true) {
+        register = <Link className="" to="/auths/register">Register</Link>
+    }
     return (
         <StyledHeader>
             <div className="header">
                 <Link className="logo" to="/yATidRH0p4k">CompanyLogo</Link>
                 <div className="header-right">
-                    <Link className="" onClick={() => setModalIsOpen(true)}>Login</Link>
+                    {
+                        checkValue
+                            ?
+                            <Link className="" onClick={e => loginClick(e)}>Login</Link>
+                            :
+                            <Link onClick={e => onKick(e)} to="/yATidRH0p4k">Logout</Link>
+                    };
+                    {register}
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={() => setModalIsOpen(false)}
                         style={customStyles}
 
                     >
-                        <LoginScreen onClick={() => setModalIsOpen(false)} />
+                        <LoginScreen />
                     </Modal>
-                    <Link className="" to="/auths/register">Register</Link>
-                    <Link className="" to="/auths/404notfound">404</Link>
-
                 </div>
             </div>
         </StyledHeader >

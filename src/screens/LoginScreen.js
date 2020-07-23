@@ -3,14 +3,13 @@ import StyledLoginRegister from "../components/styles/StyledLoginRegister";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 import services from "../services/CallApi";
-import { passRegex, emailRegex } from "../utils/Regex"
 
 const LoginScreen = () => {
     let loggedIn = true;
     console.log(process.env.REACT_APP_URL_API_USERS);
     const token = localStorage.getItem("token")
     if (token == null) {
-        loggedIn = false
+        loggedIn = false;
     }
     const [user, setUser] = useState({
         id: "",
@@ -55,7 +54,7 @@ const LoginScreen = () => {
                 localStorage.setItem("token", "123456789")
                 setUser({
                     id: idU,
-                    loggedIn: true
+                    loggedIn: true,
                 })
             } else {
                 alert("Wrong username or password");
@@ -64,7 +63,6 @@ const LoginScreen = () => {
             console.log(error)
             alert("Login failed");
         }
-
     };
 
     if (loggedIn) {
