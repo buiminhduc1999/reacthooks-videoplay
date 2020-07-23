@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import { listIdVideo } from '../utils/ListId';
-import { Redirect } from 'react-router-dom'
 
-const CheckId = props => {
+const CheckId = (path) => {
     let count = 0;
     listIdVideo.forEach(element => {
-        if (props.match.params.activeVideo === element) {
+        if (path === element) {
             count++;
-            console.log(props.match.params.activeVideo)
-            console.log(element)
         }
     });
-    return count;
+    if (count < 1)
+        return true;
+    return false;
 }
 export default CheckId;

@@ -94,23 +94,12 @@ const WbnPlayer = props => {
 
             setState(prevState => ({ ...prevState, videos }));
         }
-    }
-    // let count = CheckId();
-    // if (count < 1) {
-    //     return <Redirect to={`/auths/404notfound`} />
-    // }
-    let count = 0;
-    listIdVideo.forEach(element => {
-        if (props.match.params.activeVideo === element) {
-            count++;
-            console.log(props.match.params.activeVideo)
-            console.log(element)
-        }
-    });
-    if (count < 1) {
+    };
+
+    if (CheckId(props.match.params.activeVideo)) {
         return <Redirect to={`/auths/404notfound`} />
     }
-    console.log(count);
+
     return (
         <>
             <ThemeProvider theme={state.nightMode ? theme : themeLight}>
