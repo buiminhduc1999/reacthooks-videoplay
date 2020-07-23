@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL = "https://jsonplaceholder.typicode.com"
+const BASE_URL = process.env.REACT_APP_URL_API_PHOTOS;
 
 export default {
     getAllPhotos: () =>
@@ -13,7 +13,7 @@ export default {
     deletePhoto: (photoId) =>
         axios.delete(`${BASE_URL}/photos/${photoId}`),
     addUser: (user) =>
-        axios.post("http://localhost:3003/users", user),
+        axios.post(process.env.REACT_APP_URL_API_USERS, user),
     getUserById: () =>
-        axios.get("http://localhost:3003/users"),
+        axios.get(process.env.REACT_APP_URL_API_USERS),
 }

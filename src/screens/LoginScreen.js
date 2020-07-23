@@ -7,7 +7,7 @@ import { passRegex, emailRegex } from "../utils/Regex"
 
 const LoginScreen = () => {
     let loggedIn = true;
-
+    console.log(process.env.REACT_APP_URL_API_USERS);
     const token = localStorage.getItem("token")
     if (token == null) {
         loggedIn = false
@@ -43,16 +43,21 @@ const LoginScreen = () => {
                 alert('You need to fill in all the information!!!')
                 return true;
             }
+            let check = false;
+            let idU = null;
             users.forEach(user => {
                 if (username === user.username && password === user.password) {
-                    localStorage.setItem("token", "123456789")
-                    setUser({
-                        id: user.id,
-                        loggedIn: true
-                    })
+                    check = true;
+                    idU = user.id;
                 }
             });
-            if (loggedIn === false) {
+            if (check) {
+                localStorage.setItem("token", "123456789")
+                setUser({
+                    id: idU,
+                    loggedIn: true
+                })
+            } else {
                 alert("Wrong username or password");
             }
         } catch (error) {
