@@ -12,7 +12,7 @@ const NotFound = () => {
                     </div>
                     <h2>Oops! This Page Could Not Be Found</h2>
                     <p>Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable</p>
-                    <Link className="" to="/auths/forgotpassword">Go To Homepage</Link>
+                    <Link className="" to="/yATidRH0p4k">Go To Homepage</Link>
                 </div>
             </div>
         </StyledNotFound>

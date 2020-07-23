@@ -13,6 +13,7 @@ import Header from '../components/Header';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ForgotPassScreen from '../screens/ForgotPassScreen';
+import NotFound from '../screens/404NotFoundScreen';
 
 const Routing = () => (
     <>
@@ -73,6 +74,11 @@ const Routing = () => (
                     exact
                     path="/auths/forgotpassword"
                     component={ForgotPassScreen}
+                />
+                <Route
+                    exact
+                    path="/auths/404notfound"
+                    component={NotFound}
                 />
             </Switch>
             <GlobalStyle />

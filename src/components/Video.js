@@ -4,6 +4,7 @@ import StyledVideoWrapper from './styles/StyledVideoWrapper'
 import StyledVideo from './styles/StyledVideo';
 
 const Video = ({ active, autoplay, endCallback, progressCallback }) => (
+
     <StyledVideo>
         <StyledVideoWrapper>
             <ReactPlayer

@@ -3,7 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import Video from '../../components/Video';
 import Playlist from '../../components/containters/Playlist';
 import StyledWbnPlayer from '../../components/styles/StyledWbnPlayer';
-
+import { Redirect } from 'react-router-dom'
+import CheckId from '../../services/CheckId';
+import { listIdVideo } from '../../utils/ListId';
 const theme = {
     bgcolor: '#353535',
     bgcolorItem: '#414141',
@@ -25,6 +27,7 @@ const themeLight = {
 };
 
 const WbnPlayer = props => {
+
     localStorage.removeItem("token")
     const items = JSON.parse(document.querySelector('[name="items"]').value);
     const savedState = JSON.parse(localStorage.getItem(`${items.idPlaylist}`));
@@ -56,6 +59,7 @@ const WbnPlayer = props => {
                 autoplay: false,
             })
         }
+
     }, [
         props.history,
         props.location.autoplay,
@@ -91,6 +95,22 @@ const WbnPlayer = props => {
             setState(prevState => ({ ...prevState, videos }));
         }
     }
+    // let count = CheckId();
+    // if (count < 1) {
+    //     return <Redirect to={`/auths/404notfound`} />
+    // }
+    let count = 0;
+    listIdVideo.forEach(element => {
+        if (props.match.params.activeVideo === element) {
+            count++;
+            console.log(props.match.params.activeVideo)
+            console.log(element)
+        }
+    });
+    if (count < 1) {
+        return <Redirect to={`/auths/404notfound`} />
+    }
+    console.log(count);
     return (
         <>
             <ThemeProvider theme={state.nightMode ? theme : themeLight}>

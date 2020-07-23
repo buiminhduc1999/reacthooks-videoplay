@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import StyledHeader,{customStyles} from './styles/StyledHeader';
+import StyledHeader, { customStyles } from './styles/StyledHeader';
 import { Link } from "react-router-dom";
 import Modal from 'react-modal';
 import LoginScreen from '../screens/LoginScreen';
@@ -12,14 +12,17 @@ const Header = () => {
                 <Link className="logo" to="/yATidRH0p4k">CompanyLogo</Link>
                 <div className="header-right">
                     <Link className="" onClick={() => setModalIsOpen(true)}>Login</Link>
-                    <Modal 
+                    <Modal
                         isOpen={modalIsOpen}
-                        onRequestClose={()=> setModalIsOpen(false)}
-                        style={customStyles}                   
+                        onRequestClose={() => setModalIsOpen(false)}
+                        style={customStyles}
+
                     >
-                    <LoginScreen onClick={()=> setModalIsOpen(false)} />
+                        <LoginScreen onClick={() => setModalIsOpen(false)} />
                     </Modal>
                     <Link className="" to="/auths/register">Register</Link>
+                    <Link className="" to="/auths/404notfound">404</Link>
+
                 </div>
             </div>
         </StyledHeader >
