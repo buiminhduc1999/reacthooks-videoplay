@@ -26,10 +26,9 @@ const LoginScreen = () => {
     }, []);
 
     const loadUsers = async () => {
-        const result = await services.getUserById();
+        const result = await services.getUserAC();
         setUsers(result.data.reverse());
     };
-    //
 
     const onChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -75,11 +74,12 @@ const LoginScreen = () => {
                 </div>
                 <form onSubmit={e => submitForm(e)}>
                     <div className="form">
+
                         <div className="inputfield">
                             <label>Username</label>
                             <input
                                 type="text"
-                                class="input"
+                                className="input"
                                 name="username"
                                 value={username}
                                 onChange={e => onChange(e)}
@@ -105,9 +105,10 @@ const LoginScreen = () => {
                         </div>
                     </div>
                 </form>
-                {user.msg}
+
                 <div className="forgot">
                     <Link className="" to="/auths/forgotpassword">Forgot password</Link>
+                    {msg}
                 </div>
             </div>
         </StyledLoginRegister >

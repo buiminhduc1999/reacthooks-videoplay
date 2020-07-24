@@ -1,5 +1,5 @@
 import React from 'react';
-import Routing from './routers/appRouters';
+import Routing from './hooks/appRouters';
 const App = () => (
     <>
         <Routing />

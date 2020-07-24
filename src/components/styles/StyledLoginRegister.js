@@ -81,6 +81,10 @@ const StyledLoginRegister = styled.div`
     line-height: 25px;
     border-radius: 4px;
   }
+  .forgot h1{
+    color: red;
+    font-size: 12px;
+  }
   a:hover{
     color: red;
   }
