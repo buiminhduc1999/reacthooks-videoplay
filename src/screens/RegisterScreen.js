@@ -34,7 +34,7 @@ const RegisterScreen = () => {
                 phone,
                 address
             }
-            await services.addUser(user);
+            await services.addUserAC(user);
             history.push("/");
             alert("Register sucessfully");
         } catch (error) {

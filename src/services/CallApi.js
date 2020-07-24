@@ -17,5 +17,9 @@ export default {
     getUserById: () =>
         axios.get(process.env.REACT_APP_URL_API_USERS),
     getUserAC: () =>
-        axios.get(`https://milky-gateway.herokuapp.com/api/v1/login`),
+        axios.get(`${process.env.REACT_APP_URL_API_USERSAC}/login`),
+    addUserAC: (user) =>
+        axios.post(`${process.env.REACT_APP_URL_API_USERSAC}/api/v1/register`, user),
+    getUserACById: () =>
+        axios.get(`${process.env.REACT_APP_URL_API_USERSAC}/users/me`),
 }

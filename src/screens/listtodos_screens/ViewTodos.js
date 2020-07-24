@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
-
+import services from "../services/CallApi";
 export let loggedIn = false;
 
 const ViewTodos = () => {
@@ -20,7 +20,7 @@ const ViewTodos = () => {
     }, []);
 
     const loadVideo = async () => {
-        const res = await axios.get(`http://localhost:3003/users/${id}`);
+        const res = services.getUserACById();
         setUser(res.data);
     };
     return (
