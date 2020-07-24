@@ -6,19 +6,18 @@ import services from "../services/CallApi";
 
 const LoginScreen = () => {
     let loggedIn = true;
-    console.log(process.env.REACT_APP_URL_API_USERS);
     const token = localStorage.getItem("token")
     if (token == null) {
         loggedIn = false;
     }
+    const [msg, setMsg] = useState();
     const [user, setUser] = useState({
         id: "",
         username: "",
         password: "",
-        loggedIn
+        loggedIn,
     });
     const { username, password } = user;
-
     //load user api
     const [users, setUsers] = useState([]);
 
@@ -31,6 +30,7 @@ const LoginScreen = () => {
         setUsers(result.data.reverse());
     };
     //
+
     const onChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
@@ -39,8 +39,7 @@ const LoginScreen = () => {
         e.preventDefault()
         try {
             if (password === "" || username === "") {
-                alert('You need to fill in all the information!!!')
-                return true;
+                setMsg(<h1>Login Failed</h1>);
             }
             let check = false;
             let idU = null;
@@ -57,7 +56,7 @@ const LoginScreen = () => {
                     loggedIn: true,
                 })
             } else {
-                alert("Wrong username or password");
+                setMsg(<h1>Wrong username or password</h1>);
             }
         } catch (error) {
             console.log(error)
@@ -106,6 +105,7 @@ const LoginScreen = () => {
                         </div>
                     </div>
                 </form>
+                {user.msg}
                 <div className="forgot">
                     <Link className="" to="/auths/forgotpassword">Forgot password</Link>
                 </div>

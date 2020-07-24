@@ -18,9 +18,7 @@ const Header = props => {
         setcheckValue(false);
         setModalIsOpen(true)
     };
-    const ahihi = e => {
-        setModalIsOpen(true)
-    }
+
     let register;
     if (checkValue === true) {
         register = <Link className="" to="/auths/register">Register</Link>
