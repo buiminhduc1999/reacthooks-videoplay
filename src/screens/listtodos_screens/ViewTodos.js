@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
-import services from "../services/CallApi";
-export let loggedIn = false;
-
+import services from "../../services/CallApi";
+import axios from "axios";
 const ViewTodos = () => {
     const [user, setUser] = useState({
         username: "",
@@ -20,11 +18,13 @@ const ViewTodos = () => {
     }, []);
 
     const loadVideo = async () => {
-        const res = services.getUserACById();
+        const res = await axios.get(`http://localhost:3003/users/${id}`);
+        // const res = services.getUserACById();
         setUser(res.data);
     };
     return (
         <StyledHomepageTodos>
+
             <h1 className="">User Id: {id}</h1>
             <hr />
             <ul className="">

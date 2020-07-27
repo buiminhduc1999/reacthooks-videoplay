@@ -14,7 +14,7 @@ export default {
         axios.delete(`${BASE_URL}/photos/${photoId}`),
     addUser: (user) =>
         axios.post(process.env.REACT_APP_URL_API_USERS, user),
-    getUserById: () =>
+    getUsers: () =>
         axios.get(process.env.REACT_APP_URL_API_USERS),
     getUserAC: () =>
         axios.get(`${process.env.REACT_APP_URL_API_USERSAC}/login`),

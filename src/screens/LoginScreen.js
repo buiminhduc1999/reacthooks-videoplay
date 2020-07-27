@@ -3,6 +3,7 @@ import StyledLoginRegister from "../components/styles/StyledLoginRegister";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 import services from "../services/CallApi";
+import decode from 'jwt-decode';
 
 const LoginScreen = () => {
     let loggedIn = true;
@@ -26,7 +27,7 @@ const LoginScreen = () => {
     }, []);
 
     const loadUsers = async () => {
-        const result = await services.getUserAC();
+        const result = await services.getUsers();
         setUsers(result.data.reverse());
     };
 
@@ -37,26 +38,34 @@ const LoginScreen = () => {
     const submitForm = e => {
         e.preventDefault()
         try {
-            if (password === "" || username === "") {
-                setMsg(<h1>Login Failed</h1>);
-            }
-            let check = false;
-            let idU = null;
-            users.forEach(user => {
-                if (username === user.username && password === user.password) {
-                    check = true;
-                    idU = user.id;
-                }
-            });
-            if (check) {
-                localStorage.setItem("token", "123456789")
-                setUser({
-                    id: idU,
-                    loggedIn: true,
+            fetch(`${process.evn.REACT_APP_URL_API_USERSAC}/login`, {
+                method: "POST",
+                body: JSON.stringify(this.state)
+            }).then((resp) => {
+                resp.json().then((result) => {
+                    console.warn("token la`: ", result);
                 })
-            } else {
-                setMsg(<h1>Wrong username or password</h1>);
-            }
+            })
+            // if (password === "" || username === "") {
+            //     setMsg(<h1>Login Failed</h1>);
+            // }
+            // let check = false;
+            // let idU = null;
+            // users.forEach(user => {
+            //     if (username === user.username && password === user.password) {
+            //         check = true;
+            //         idU = user.id;
+            //     }
+            // });
+            // if (check) {
+            //     localStorage.setItem("token", "123456789")
+            //     setUser({
+            //         id: idU,
+            //         loggedIn: true,
+            //     })
+            // } else {
+            //     setMsg(<h1>Wrong username or password</h1>);
+            // }
         } catch (error) {
             console.log(error)
             alert("Login failed");
@@ -74,7 +83,6 @@ const LoginScreen = () => {
                 </div>
                 <form onSubmit={e => submitForm(e)}>
                     <div className="form">
-
                         <div className="inputfield">
                             <label>Username</label>
                             <input
@@ -83,7 +91,6 @@ const LoginScreen = () => {
                                 name="username"
                                 value={username}
                                 onChange={e => onChange(e)}
-
                             />
                         </div>
                         <div className="inputfield">

@@ -1,15 +1,24 @@
 import React, { useCallback } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import GlobalStyle from '../components/styles/GlobalStyle';
 import Header from '../components/Header';
 import appRouters from '../routers/index';
-
+import checkAuth from '../utils/CheckAuth'
 function Routing() {
-    console.log(appRouters);
+
+    const AuthRoute = ({ component: Component, ...rest }) => (
+        <Route {...rest} render={props => (
+            checkAuth() ? (
+                <Component {...props} />
+            ) : (
+                    <Redirect to={{ pathname: '/auths/login' }} />
+                )
+        )} />
+    )
     const renderRouter = useCallback(() =>
         appRouters.map((router, index) => {
             return (
-                <Route
+                <AuthRoute
                     key={index.toString()}
                     path={`${router.parentPath}${router.path}`}
                     component={router.component}
