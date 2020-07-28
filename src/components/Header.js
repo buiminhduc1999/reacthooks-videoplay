@@ -10,7 +10,7 @@ const Header = props => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [checkValue, setcheckValue] = useState(true);
     const onKick = e => {
-        localStorage.removeItem("token")
+        localStorage.removeItem("jwt-1.0")
         setcheckValue(true)
         return <Redirect to={`/yATidRH0p4k`} />
     };
@@ -40,7 +40,6 @@ const Header = props => {
                         isOpen={modalIsOpen}
                         onRequestClose={() => setModalIsOpen(false)}
                         style={customStyles}
-
                     >
                         <LoginScreen />
                     </Modal>

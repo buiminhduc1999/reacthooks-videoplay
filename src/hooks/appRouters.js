@@ -11,14 +11,14 @@ function Routing() {
             checkAuth() ? (
                 <Component {...props} />
             ) : (
-                    <Redirect to={{ pathname: '/auths/login' }} />
+                    <Redirect to={{ pathname: '/' }} />
                 )
         )} />
     )
     const renderRouter = useCallback(() =>
         appRouters.map((router, index) => {
             return (
-                <Route
+                <AuthRoute
                     key={index.toString()}
                     path={`${router.parentPath}${router.path}`}
                     component={router.component}

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import StyledLoginRegister from "../components/styles/StyledLoginRegister";
 import { Link } from "react-router-dom";
-import { Redirect } from 'react-router-dom'
-import services from "../services/CallApi";
 import axios from "axios";
 
 const LoginScreen = () => {
@@ -12,7 +10,6 @@ const LoginScreen = () => {
         login: false,
         token: null,
     });
-    const [token, setToken] = useState([]);
     const { userName, password } = user;
     const onChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });

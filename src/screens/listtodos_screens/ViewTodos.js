@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
-import services from "../../services/CallApi";
 import axios from "axios";
 import { getJwt } from "../../utils/HandlingJwt";
+import { checkRefresh } from "../../utils/CheckRefreshToken";
 
 const ViewTodos = () => {
     const [user, setUser] = useState({
@@ -19,6 +19,7 @@ const ViewTodos = () => {
 
     useEffect(() => {
         loadUser();
+        checkRefresh();
     }, []);
     axios.interceptors.request.use(
         config => {
@@ -32,7 +33,6 @@ const ViewTodos = () => {
     const loadUser = async () => {
         const result = await axios.get(`${process.env.REACT_APP_URL_API_USERSAC}/users/me`);
         setUser(result.data.result.user);
-        console.log(result.data.result.user);
     };
     return (
         <StyledHomepageTodos>

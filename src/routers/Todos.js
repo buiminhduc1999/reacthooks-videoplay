@@ -24,7 +24,7 @@ export default [
     {
         exact: true,
         path: '/todos/view',
-        private: false,
+        private: true,
         component: ViewTodos,
     },
 ];

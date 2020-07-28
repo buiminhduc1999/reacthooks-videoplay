@@ -1,18 +1,10 @@
 import decode from 'jwt-decode';
+import { getJwt } from './HandlingJwt';
 
-const checkAuth = () => {
-    const token = localStorage.getItem('token');
-    const refreshToken = localStorage.getItem('refreshToken');
-    if (!token || !refreshToken) {
-        return false;
-    }
-
+const checkJwt = () => {
     try {
-        const { exp } = decode(refreshToken);
-
-        if (exp < new Date().getTime() / 1000) {
+        if (getJwt === null)
             return false;
-        }
 
     } catch (e) {
         return false;
@@ -20,4 +12,4 @@ const checkAuth = () => {
 
     return true;
 }
-export default checkAuth;
+export default checkJwt;
