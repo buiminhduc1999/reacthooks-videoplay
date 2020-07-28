@@ -18,7 +18,7 @@ function Routing() {
     const renderRouter = useCallback(() =>
         appRouters.map((router, index) => {
             return (
-                <AuthRoute
+                <Route
                     key={index.toString()}
                     path={`${router.parentPath}${router.path}`}
                     component={router.component}
