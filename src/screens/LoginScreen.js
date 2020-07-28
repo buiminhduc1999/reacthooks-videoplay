@@ -3,7 +3,6 @@ import StyledLoginRegister from "../components/styles/StyledLoginRegister";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 import services from "../services/CallApi";
-import decode from 'jwt-decode';
 import axios from "axios";
 
 const LoginScreen = () => {
@@ -13,10 +12,8 @@ const LoginScreen = () => {
         login: false,
         token: null,
     });
+    const [token, setToken] = useState([]);
     const { userName, password } = user;
-    // const config = {
-    //     headers: { Authorization: `Bearer ${token}` }
-    // };
     const onChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
@@ -25,8 +22,11 @@ const LoginScreen = () => {
         axios.post(`https://milky-auth.herokuapp.com/login`, {
             userName: userName,
             password: password
-        }).then(res => console.log(res));
+        }).then(res => {
+            localStorage.setItem('jwt-1.0', res.data.result.access_token)
+        });
     }
+
     return (
         <StyledLoginRegister>
             <div className="wrapper">

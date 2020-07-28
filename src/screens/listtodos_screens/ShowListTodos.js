@@ -5,7 +5,7 @@ import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
 
 const Todos = () => {
     const [videos, setVideo] = useState([]);
-
+    localStorage.removeItem("jwt-1.0")
     useEffect(() => {
         loadVideos();
     }, []);

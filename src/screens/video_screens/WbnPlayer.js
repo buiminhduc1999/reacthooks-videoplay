@@ -28,7 +28,6 @@ const themeLight = {
 
 const WbnPlayer = props => {
 
-    localStorage.removeItem("token")
     const items = JSON.parse(document.querySelector('[name="items"]').value);
     const savedState = JSON.parse(localStorage.getItem(`${items.idPlaylist}`));
     const [state, setState] = useState({

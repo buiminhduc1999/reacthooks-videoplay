@@ -23,7 +23,7 @@ export default [
     },
     {
         exact: true,
-        path: '/todos/view/:id',
+        path: '/todos/view',
         private: false,
         component: ViewTodos,
     },

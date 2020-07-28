@@ -3,36 +3,47 @@ import { useParams } from "react-router-dom";
 import StyledHomepageTodos from "../../components/styles/StyledHomepageTodos";
 import services from "../../services/CallApi";
 import axios from "axios";
+import { getJwt } from "../../utils/HandlingJwt";
+
 const ViewTodos = () => {
     const [user, setUser] = useState({
-        username: "",
-        password: "",
-        email: "",
+        id: "",
+        address: "",
+        created_at: "",
+        name: "",
         phone: "",
-        address: ""
+        update_date: "",
+        url: ""
     });
     const { id } = useParams();
 
     useEffect(() => {
-        loadVideo();
+        loadUser();
     }, []);
-
-    const loadVideo = async () => {
-        const res = await axios.get(`http://localhost:3003/users/${id}`);
-        // const res = services.getUserACById();
-        setUser(res.data);
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = `Bearer ${getJwt()}`;
+            return config
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+    const loadUser = async () => {
+        const result = await axios.get(`${process.env.REACT_APP_URL_API_USERSAC}/users/me`);
+        setUser(result.data.result.user);
+        console.log(result.data.result.user);
     };
     return (
         <StyledHomepageTodos>
-
             <h1 className="">User Id: {id}</h1>
             <hr />
             <ul className="">
-                <li className="">User name: {user.username}</li>
-                <li className="">Password: {user.password}</li>
-                <li className="">Email: {user.email}</li>
-                <li className="">Phone: {user.phone}</li>
                 <li className="">Address: {user.address}</li>
+                <li className="">Create_at: {user.created_at}</li>
+                <li className="">Name: {user.name}</li>
+                <li className="">Phone: {user.phone}</li>
+                <li className="">Update_date: {user.updated_at}</li>
             </ul>
         </ StyledHomepageTodos>
     );
